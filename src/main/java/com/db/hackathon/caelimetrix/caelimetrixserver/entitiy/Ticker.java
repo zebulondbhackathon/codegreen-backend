@@ -20,6 +20,30 @@ public class Ticker implements Serializable {
     @Column(name = "news_details")
     private String newsDetails;
 
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+
+    public String getNewsHeader() {
+        return newsHeader;
+    }
+
+    public void setNewsHeader(String newsHeader) {
+        this.newsHeader = newsHeader;
+    }
+
+    public String getNewsDetails() {
+        return newsDetails;
+    }
+
+    public void setNewsDetails(String newsDetails) {
+        this.newsDetails = newsDetails;
+    }
+
     @Override
     public String toString() {
         return "Ticker{" +

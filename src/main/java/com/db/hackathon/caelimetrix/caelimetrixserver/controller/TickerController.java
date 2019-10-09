@@ -1,8 +1,6 @@
 package com.db.hackathon.caelimetrix.caelimetrixserver.controller;
 
-import com.db.hackathon.caelimetrix.caelimetrixserver.entitiy.EsgDataCsv;
 import com.db.hackathon.caelimetrix.caelimetrixserver.entitiy.Ticker;
-import com.db.hackathon.caelimetrix.caelimetrixserver.service.EsgDataCsvService;
 import com.db.hackathon.caelimetrix.caelimetrixserver.service.TickerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +14,7 @@ import java.util.List;
 @CrossOrigin
 @RequestMapping("/ticker")
 public class TickerController {
-
+    private static final Logger log = LoggerFactory.getLogger(TickerController.class);
 
     @Autowired
     private TickerService tickerService;
@@ -26,9 +24,7 @@ public class TickerController {
         return tickerService.findAll();
     }
 
-    private static final Logger log = LoggerFactory.getLogger(TickerController.class);
-
-    @GetMapping(value = "/source")
+    @GetMapping(value = "/source/{source}")
     public ResponseEntity<List<Ticker>> getAllTickerDataBySource(@PathVariable("source") String source) {
         log.info("getAllTickerDataBySource({})", source);
         List<Ticker> tickerList = tickerService.getTickerDataBySource(source);
