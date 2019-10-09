@@ -1,7 +1,6 @@
 package com.db.hackathon.caelimetrix.caelimetrixserver.repo;
 
 import com.db.hackathon.caelimetrix.caelimetrixserver.entitiy.Ticker;
-import com.db.hackathon.caelimetrix.caelimetrixserver.entitiy.TradeData;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

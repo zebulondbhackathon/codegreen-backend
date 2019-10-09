@@ -1,9 +1,6 @@
 package com.db.hackathon.caelimetrix.caelimetrixserver.controller;
 
-import com.db.hackathon.caelimetrix.caelimetrixserver.entitiy.EsgDataCsv;
-import com.db.hackathon.caelimetrix.caelimetrixserver.entitiy.Ticker;
 import com.db.hackathon.caelimetrix.caelimetrixserver.entitiy.TradeData;
-import com.db.hackathon.caelimetrix.caelimetrixserver.service.TickerService;
 import com.db.hackathon.caelimetrix.caelimetrixserver.service.TradeDataService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
