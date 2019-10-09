@@ -48,7 +48,7 @@ public class CaelimetrixServerApplication implements CommandLineRunner {
 		esgDataCsvService.getEsgDataByRic("QEP.N").forEach(x -> log.info("ESG Data: {}", x));
 
 		log.info("Trade Data By RIC 'QEP.N'");
-		tradeDataService.getTradeDataByRic("QEP.N").forEach(x -> log.info("ESG Data: {}", x));
+		tradeDataService.getTradeDataByRic("QEP.N").forEach(x -> log.info("Trade Data: {}", x));
 
 	}
 	@Bean
