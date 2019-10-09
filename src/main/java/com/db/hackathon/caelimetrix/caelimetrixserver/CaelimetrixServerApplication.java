@@ -1,6 +1,7 @@
 package com.db.hackathon.caelimetrix.caelimetrixserver;
 
-import com.db.hackathon.caelimetrix.caelimetrixserver.repo.EsgDataCsvRepository;
+import com.db.hackathon.caelimetrix.caelimetrixserver.service.EsgDataCsvService;
+import com.db.hackathon.caelimetrix.caelimetrixserver.service.TradeDataService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,10 @@ public class CaelimetrixServerApplication implements CommandLineRunner {
 	private static final Logger log = LoggerFactory.getLogger(CaelimetrixServerApplication.class);
 
 	@Autowired
-	private EsgDataCsvRepository repository;
+	private EsgDataCsvService esgDataCsvService;
+
+	@Autowired
+	private TradeDataService tradeDataService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(CaelimetrixServerApplication.class, args);
@@ -40,8 +44,11 @@ public class CaelimetrixServerApplication implements CommandLineRunner {
 //        System.out.println("\nfindById(1L)");
 //        repository.findById(1l).ifPresent(x -> System.out.println(x));
 
-		System.out.println("\nfindByName('Node')");
-		repository.findEsgDataCsvByRic("QEP.N").forEach(x -> System.out.println(x));
+		log.info("esgDataCsvService('QEP.N')");
+		esgDataCsvService.getEsgDataByRic("QEP.N").forEach(x -> log.info("ESG Data: {}", x));
+
+		log.info("Trade Data By RIC 'QEP.N'");
+		tradeDataService.getTradeDataByRic("QEP.N").forEach(x -> log.info("ESG Data: {}", x));
 
 	}
 	@Bean

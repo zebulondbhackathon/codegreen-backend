@@ -10,6 +10,7 @@ import java.io.Serializable;
 @Table(name = "ticker")
 public class Ticker implements Serializable {
 
+    @Id
     @Column(name = "source")
     private String source;
 

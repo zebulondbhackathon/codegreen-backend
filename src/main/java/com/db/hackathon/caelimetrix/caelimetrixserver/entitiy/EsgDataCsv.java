@@ -13,21 +13,21 @@ public class EsgDataCsv implements Serializable {
     //@GeneratedValue(strategy = GenerationType.AUTO)
     private String ric;
 
-    @Column(name = "Company Name")
+    @Column(name = "company_name")
     private String companyName;
 
     private String sector;
 
-    @Column(name = "CSG_Rating")
+    @Column(name = "csg_rating")
     private String csgRating;
 
-    @Column(name = "CSG_Score")
+    @Column(name = "csg_score")
     private int csgScore;
 
-    @Column(name = "Carbon_Emissions")
+    @Column(name = "carbon_emissions")
     private String carbonEmissions;
 
-    @Column(name = "GHG_Emission")
+    @Column(name = "ghg_emission")
     private String ghgEmission;
 
     public EsgDataCsv() {

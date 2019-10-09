@@ -9,4 +9,7 @@ import java.util.List;
 @Repository
 public interface EsgDataCsvRepository extends CrudRepository<EsgDataCsv, String> {
     List<EsgDataCsv> findEsgDataCsvByRic(String ric);
+
+    @Override
+    List<EsgDataCsv> findAll();
 }
