@@ -1,5 +1,9 @@
 package com.db.hackathon.caelimetrix.caelimetrixserver;
 
+import com.db.hackathon.caelimetrix.caelimetrixserver.repo.EsgDataCsvRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,12 +15,35 @@ import java.util.Arrays;
 
 @SpringBootApplication
 @EnableSwagger2
-public class CaelimetrixServerApplication {
+public class CaelimetrixServerApplication implements CommandLineRunner {
+	private static final Logger log = LoggerFactory.getLogger(CaelimetrixServerApplication.class);
+
+	@Autowired
+	private EsgDataCsvRepository repository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(CaelimetrixServerApplication.class, args);
 	}
 
+	@Override
+	public void run(String... args) {
+
+		log.info("StartApplication...");
+
+//        repository.save(new EsgDataCsv("Java"));
+//        repository.save(new EsgDataCsv("Node"));
+//        repository.save(new EsgDataCsv("Python"));
+//
+//        System.out.println("\nfindAll()");
+//        repository.findAll().forEach(x -> System.out.println(x));
+//
+//        System.out.println("\nfindById(1L)");
+//        repository.findById(1l).ifPresent(x -> System.out.println(x));
+
+		System.out.println("\nfindByName('Node')");
+		repository.findEsgDataCsvByRic("QEP.N").forEach(x -> System.out.println(x));
+
+	}
 	@Bean
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
 		return args -> {
