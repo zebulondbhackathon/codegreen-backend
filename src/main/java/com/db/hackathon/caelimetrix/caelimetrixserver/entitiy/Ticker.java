@@ -14,13 +14,18 @@ public class Ticker implements Serializable {
     @Column(name = "source")
     private String source;
 
-    private String sector;
-
     @Column(name = "news_header")
     private String newsHeader;
 
     @Column(name = "news_details")
-    private int newsDetails;
+    private String newsDetails;
 
-
+    @Override
+    public String toString() {
+        return "Ticker{" +
+                "source='" + source + '\'' +
+                ", newsHeader='" + newsHeader + '\'' +
+                ", newsDetails='" + newsDetails + '\'' +
+                '}';
+    }
 }

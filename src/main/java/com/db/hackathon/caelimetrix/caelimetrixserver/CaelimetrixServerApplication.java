@@ -1,6 +1,7 @@
 package com.db.hackathon.caelimetrix.caelimetrixserver;
 
 import com.db.hackathon.caelimetrix.caelimetrixserver.service.EsgDataCsvService;
+import com.db.hackathon.caelimetrix.caelimetrixserver.service.TickerService;
 import com.db.hackathon.caelimetrix.caelimetrixserver.service.TradeDataService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,6 +26,9 @@ public class CaelimetrixServerApplication implements CommandLineRunner {
 	@Autowired
 	private TradeDataService tradeDataService;
 
+	@Autowired
+	private TickerService tickerService;
+
 	public static void main(String[] args) {
 		SpringApplication.run(CaelimetrixServerApplication.class, args);
 	}
@@ -48,7 +52,10 @@ public class CaelimetrixServerApplication implements CommandLineRunner {
 		esgDataCsvService.getEsgDataByRic("QEP.N").forEach(x -> log.info("ESG Data: {}", x));
 
 		log.info("Trade Data By RIC 'QEP.N'");
-		tradeDataService.getTradeDataByRic("QEP.N").forEach(x -> log.info("ESG Data: {}", x));
+		tradeDataService.getTradeDataByRic("QEP.N").forEach(x -> log.info("Trade Data: {}", x));
+
+		log.info("Ticker Data By source 'MSCI'");
+		tickerService.getTickerDataBySource("MSCI").forEach(x -> log.info("Ticker Data: {}", x));
 
 	}
 	@Bean

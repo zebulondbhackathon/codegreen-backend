@@ -1,6 +1,7 @@
 package com.db.hackathon.caelimetrix.caelimetrixserver.controller;
 
 import com.db.hackathon.caelimetrix.caelimetrixserver.entitiy.EsgDataCsv;
+import com.db.hackathon.caelimetrix.caelimetrixserver.entitiy.Ticker;
 import com.db.hackathon.caelimetrix.caelimetrixserver.service.EsgDataCsvService;
 import com.db.hackathon.caelimetrix.caelimetrixserver.service.TickerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class TickerController {
     private TickerService tickerService;
 
     @GetMapping(value = "/all")
-    public List<EsgDataCsv> getAllEsgData() {
+    public List<Ticker> getAllTickerData() {
         return tickerService.findAll();
     }
 }
