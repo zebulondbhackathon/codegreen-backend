@@ -4,11 +4,11 @@ import com.db.hackathon.caelimetrix.caelimetrixserver.entitiy.EsgDataCsv;
 import com.db.hackathon.caelimetrix.caelimetrixserver.entitiy.Ticker;
 import com.db.hackathon.caelimetrix.caelimetrixserver.service.EsgDataCsvService;
 import com.db.hackathon.caelimetrix.caelimetrixserver.service.TickerService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,11 +16,23 @@ import java.util.List;
 @CrossOrigin
 @RequestMapping("/ticker")
 public class TickerController {
+
+
     @Autowired
     private TickerService tickerService;
 
     @GetMapping(value = "/all")
     public List<Ticker> getAllTickerData() {
         return tickerService.findAll();
+    }
+
+    private static final Logger log = LoggerFactory.getLogger(TickerController.class);
+
+    @GetMapping(value = "/source")
+    public ResponseEntity<List<Ticker>> getAllTickerDataBySource(@PathVariable("source") String source) {
+        log.info("getAllTickerDataBySource({})", source);
+        List<Ticker> tickerList = tickerService.getTickerDataBySource(source);
+        tickerList.forEach(x -> log.info("Ticker Data: {}", x));
+        return ResponseEntity.ok().body(tickerList);
     }
 }

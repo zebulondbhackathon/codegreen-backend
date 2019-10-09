@@ -38,16 +38,6 @@ public class CaelimetrixServerApplication implements CommandLineRunner {
 
 		log.info("StartApplication...");
 
-//        repository.save(new EsgDataCsv("Java"));
-//        repository.save(new EsgDataCsv("Node"));
-//        repository.save(new EsgDataCsv("Python"));
-//
-//        System.out.println("\nfindAll()");
-//        repository.findAll().forEach(x -> System.out.println(x));
-//
-//        System.out.println("\nfindById(1L)");
-//        repository.findById(1l).ifPresent(x -> System.out.println(x));
-
 		log.info("esgDataCsvService('QEP.N')");
 		esgDataCsvService.getEsgDataByRic("QEP.N").forEach(x -> log.info("ESG Data: {}", x));
 
