@@ -18,16 +18,16 @@ public class EsgDataCsv implements Serializable {
 
     private String sector;
 
-    @Column(name = "CSG Rating")
+    @Column(name = "CSG_Rating")
     private String csgRating;
 
-    @Column(name = "CSG Score")
+    @Column(name = "CSG_Score")
     private int csgScore;
 
-    @Column(name = "Carbon Emissions (MT)")
+    @Column(name = "Carbon_Emissions")
     private String carbonEmissions;
 
-    @Column(name = "GHG Emission (MT)")
+    @Column(name = "GHG_Emission")
     private String ghgEmission;
 
     public EsgDataCsv() {
